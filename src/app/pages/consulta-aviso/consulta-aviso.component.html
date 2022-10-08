@@ -1,0 +1,52 @@
+<mat-card>
+  <form action="" [formGroup]="myForm">
+    <mat-card-header>
+      <mat-card-title>Consulta {{data.descripcionAviso}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Correo</mat-label>
+          <mat-icon matSuffix>mail</mat-icon>
+          <input matInput placeholder="Correo" formControlName="mail">
+        </mat-form-field>
+        <div *ngIf="myForm.get('mail')?.errors && myForm.get('mail')?.dirty">
+          <mat-error>
+            El campo es <strong>obligatorio</strong>
+          </mat-error>
+        </div>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <mat-icon matSuffix>person</mat-icon>
+          <input matInput placeholder="Nombre" formControlName="nombre">
+        </mat-form-field>
+        <div *ngIf="myForm.get('nombre')?.errors && myForm.get('nombre')?.dirty">
+          <mat-error>
+            El campo es <strong>obligatorio</strong>
+          </mat-error>
+        </div>
+      </div>
+      <div>
+        <mat-form-field  class="example-full-width" appearance="outline">
+          <mat-label>Mensaje</mat-label>
+          <mat-icon matSuffix><span class="material-symbols-outlined">
+            edit_note
+            </span></mat-icon>
+          <textarea matInput placeholder="Mensaje" formControlName="mensaje"></textarea>
+        </mat-form-field>
+        <div *ngIf="myForm.get('mensaje')?.errors && myForm.get('mensaje')?.dirty">
+          <mat-error>
+            El campo es <strong>obligatorio</strong>
+          </mat-error>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-stroked-button [disabled] = "myForm.invalid" type="submit" (click)="enviar()">Enviar</button>
+      <button mat-stroked-button type="submit" (click)="cerrar()">Cerrar</button>
+    </mat-card-actions>
+  </form>
+</mat-card>
+

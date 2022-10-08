@@ -1,0 +1,30 @@
+<form class="example-form">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Datos del usuario</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <Table class="mat-elevation-z8 demo-table table-design">
+        <tr class="cells-design">
+          <td class="th-design cells-design">Usuario: </td>
+          <td>{{loginName}}</td>
+        </tr>
+        <tr class="cells-design">
+          <td class="th-design cells-design">Apellido: </td>
+          <td>{{apellido}}</td>
+        </tr>
+        <tr class="cells-design">
+          <td class="th-design cells-design">Nombre: </td>
+          <td>{{nombre}}</td>
+        </tr>
+        <tr class="cells-design">
+          <td class="th-design cells-design">Mail: </td>
+          <td>{{mail}}</td>
+        </tr>
+      </Table>
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- <button mat-stroked-button type="submit" (click)="cerrar()">Cerrar</button> -->
+    </mat-card-actions>
+  </mat-card>
+</form>

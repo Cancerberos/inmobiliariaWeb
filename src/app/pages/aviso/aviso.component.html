@@ -1,0 +1,61 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{aviso.tipoOperacion.descripcion}} - {{aviso.descripcion}}</mat-card-title>
+    <mat-card-subtitle>{{aviso.valor}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="aviso.inmueble.imagen[0].src" [alt]="aviso.inmueble.imagen[0].descripcion">
+  <mat-card-content>
+    <p>
+      {{aviso.inmueble.calle}} {{aviso.inmueble.numero}} {{aviso.inmueble.localidad.descripcion}} {{aviso.inmueble.localidad.provincia.descripcion}}
+    </p>
+    <div *ngFor="let ic of aviso.inmueble.inmuebleTipoCaracteristica">
+    <!-- <div> -->
+      <span *ngIf="ic.tipoCaracteristica.id == 1">
+        <mat-icon matBadgeColor="warn" matTooltip="Ambientes">home</mat-icon>
+        <mat-label>{{ic.cantidad}}</mat-label>
+      </span>
+      <span *ngIf="ic.tipoCaracteristica.id == 2">
+        <mat-icon matBadgeColor="warn" matTooltip="Baños">bathtub</mat-icon>
+        <mat-label>{{ic.cantidad}}</mat-label>
+      </span>
+      <span *ngIf="ic.tipoCaracteristica.id == 5">
+        <mat-icon matBadgeColor="warn" matTooltip="Superficie">straighten</mat-icon>
+        <mat-label>{{ic.cantidad}}</mat-label>
+      </span>
+      <span *ngIf="ic.tipoCaracteristica.id == 14">
+        <mat-icon matBadgeColor="warn" matTooltip="Habitaciones">bed</mat-icon>
+        <mat-label>{{ic.cantidad}}</mat-label>
+      </span>
+      <!--
+      <table>
+          <tr *ngFor="let ic of aviso.inmueble.inmuebleTipoCaracteristica">
+            <th *ngIf="ic.tipoCaracteristica.id == 1">
+              <mat-icon matBadgeColor="warn" matTooltip="Ambientes">home</mat-icon>
+              <mat-label>{{ic.cantidad}}</mat-label>
+            </th>
+            <th *ngIf="ic.tipoCaracteristica.id == 2">
+              <mat-icon matBadgeColor="warn" matTooltip="Baños">bathtub</mat-icon>
+              <mat-label>{{ic.cantidad}}</mat-label>
+            </th>
+            <th *ngIf="ic.tipoCaracteristica.id == 5">
+              <mat-icon matBadgeColor="warn" matTooltip="Superficie">straighten</mat-icon>
+              <mat-label>{{ic.cantidad}}</mat-label>
+            </th>
+            <th *ngIf="ic.tipoCaracteristica.id == 14">
+              <mat-icon matBadgeColor="warn" matTooltip="Habitaciones">bed</mat-icon>
+              <mat-label>{{ic.cantidad}}</mat-label>
+            </th>
+          </tr>
+      </table>
+    -->
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div *ngIf="(esDetalle)">
+      <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+        <mat-icon>chat</mat-icon>
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>
+

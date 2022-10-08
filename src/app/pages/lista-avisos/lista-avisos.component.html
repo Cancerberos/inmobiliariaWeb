@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-header>
+    <h1>Avisos</h1>
+  </mat-card-header>
+  <mat-card-content>
+    <div *ngFor="let a of avisos">
+      <app-aviso [esDetalle]="false" [aviso]="a"></app-aviso>
+      <br>
+      <button mat-raised-button color="primary" routerLink="/detalle-aviso/{{a.id}}"><mat-icon><span class="material-symbols-outlined">
+        search
+        </span></mat-icon>Ver</button>
+      <br>
+      <br>
+    </div>
+  </mat-card-content>
+</mat-card>
