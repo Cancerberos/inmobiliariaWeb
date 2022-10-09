@@ -12,22 +12,8 @@
       <span>Publicado {{aviso.fechaInicio}}</span>
     </p>
     <div *ngFor="let ic of aviso.inmueble.inmuebleTipoCaracteristica">
-      <span *ngIf="ic.tipoCaracteristica.id == 1">
-        <mat-icon matBadgeColor="warn" matTooltip="Ambientes">home</mat-icon>
-        <mat-label>{{ic.cantidad}}</mat-label>
-      </span>
-      <span *ngIf="ic.tipoCaracteristica.id == 2">
-        <mat-icon matBadgeColor="warn" matTooltip="Baños">bathtub</mat-icon>
-        <mat-label>{{ic.cantidad}}</mat-label>
-      </span>
-      <span *ngIf="ic.tipoCaracteristica.id == 5">
-        <mat-icon matBadgeColor="warn" matTooltip="Superficie">straighten</mat-icon>
-        <mat-label>{{ic.cantidad}}</mat-label>
-      </span>
-      <span *ngIf="ic.tipoCaracteristica.id == 14">
-        <mat-icon matBadgeColor="warn" matTooltip="Habitaciones">bed</mat-icon>
-        <mat-label>{{ic.cantidad}}</mat-label>
-      </span>
+      <mat-icon matBadgeColor="warn" matTooltip="Ambientes">{{ic.tipoCaracteristica.icono}}</mat-icon>
+      <mat-label>{{ic.cantidad}}</mat-label>
     </div>
   </mat-card-content>
   <mat-card-actions>

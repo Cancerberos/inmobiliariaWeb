@@ -9,23 +9,9 @@
       {{aviso.inmueble.calle}} {{aviso.inmueble.numero}} {{aviso.inmueble.localidad.descripcion}} {{aviso.inmueble.localidad.provincia.descripcion}}
     </p>
     <div *ngFor="let ic of aviso.inmueble.inmuebleTipoCaracteristica">
+      <mat-icon matBadgeColor="warn" matTooltip="Ambientes">{{ic.tipoCaracteristica.icono}}</mat-icon>
+      <mat-label>{{ic.cantidad}}</mat-label>
     <!-- <div> -->
-      <span *ngIf="ic.tipoCaracteristica.id == 1">
-        <mat-icon matBadgeColor="warn" matTooltip="Ambientes">home</mat-icon>
-        <mat-label>{{ic.cantidad}}</mat-label>
-      </span>
-      <span *ngIf="ic.tipoCaracteristica.id == 2">
-        <mat-icon matBadgeColor="warn" matTooltip="Baños">bathtub</mat-icon>
-        <mat-label>{{ic.cantidad}}</mat-label>
-      </span>
-      <span *ngIf="ic.tipoCaracteristica.id == 5">
-        <mat-icon matBadgeColor="warn" matTooltip="Superficie">straighten</mat-icon>
-        <mat-label>{{ic.cantidad}}</mat-label>
-      </span>
-      <span *ngIf="ic.tipoCaracteristica.id == 14">
-        <mat-icon matBadgeColor="warn" matTooltip="Habitaciones">bed</mat-icon>
-        <mat-label>{{ic.cantidad}}</mat-label>
-      </span>
       <!--
       <table>
           <tr *ngFor="let ic of aviso.inmueble.inmuebleTipoCaracteristica">

@@ -83,5 +83,6 @@ export interface InmuebleTipoCaracteristica {
 export interface TipoCaracteristica {
   id:          number;
   descripcion: string;
+  icono:       string;
 }
 
