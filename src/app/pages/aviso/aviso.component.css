@@ -1,0 +1,21 @@
+.switches {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.caracteristicas {
+  width: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.caracteristicas__item {
+  width: 30px;
+}
+
+.caracteristicas__img {
+  cursor: pointer;
+  display: block;
+}

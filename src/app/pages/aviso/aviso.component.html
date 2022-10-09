@@ -3,37 +3,27 @@
     <mat-card-title>{{aviso.tipoOperacion.descripcion}} - {{aviso.descripcion}}</mat-card-title>
     <mat-card-subtitle>{{aviso.valor}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image [src]="aviso.inmueble.imagen[0].src" [alt]="aviso.inmueble.imagen[0].descripcion">
+  <ngb-carousel>
+    <ng-template ngbSlide *ngFor="let image of aviso.inmueble.imagen">
+      <div class="wrapper">
+        <img mat-card-image [src]="getImagenesAvisos(image.bytes, image.mimetype)" [alt]="image.descripcion">
+      </div>
+      <div class="carousel-caption">
+        <h3>{{ image.descripcion }}</h3>
+      </div>
+    </ng-template>
+  </ngb-carousel>
   <mat-card-content>
     <p>
       {{aviso.inmueble.calle}} {{aviso.inmueble.numero}} {{aviso.inmueble.localidad.descripcion}} {{aviso.inmueble.localidad.provincia.descripcion}}
     </p>
-    <div *ngFor="let ic of aviso.inmueble.inmuebleTipoCaracteristica">
-      <mat-icon matBadgeColor="warn" matTooltip="Ambientes">{{ic.tipoCaracteristica.icono}}</mat-icon>
-      <mat-label>{{ic.cantidad}}</mat-label>
-    <!-- <div> -->
-      <!--
-      <table>
-          <tr *ngFor="let ic of aviso.inmueble.inmuebleTipoCaracteristica">
-            <th *ngIf="ic.tipoCaracteristica.id == 1">
-              <mat-icon matBadgeColor="warn" matTooltip="Ambientes">home</mat-icon>
-              <mat-label>{{ic.cantidad}}</mat-label>
-            </th>
-            <th *ngIf="ic.tipoCaracteristica.id == 2">
-              <mat-icon matBadgeColor="warn" matTooltip="Baños">bathtub</mat-icon>
-              <mat-label>{{ic.cantidad}}</mat-label>
-            </th>
-            <th *ngIf="ic.tipoCaracteristica.id == 5">
-              <mat-icon matBadgeColor="warn" matTooltip="Superficie">straighten</mat-icon>
-              <mat-label>{{ic.cantidad}}</mat-label>
-            </th>
-            <th *ngIf="ic.tipoCaracteristica.id == 14">
-              <mat-icon matBadgeColor="warn" matTooltip="Habitaciones">bed</mat-icon>
-              <mat-label>{{ic.cantidad}}</mat-label>
-            </th>
-          </tr>
-      </table>
-    -->
+    <div class="switches">
+      <div class="caracteristicas" *ngFor="let ic of aviso.inmueble.inmuebleTipoCaracteristica">
+        <div class="caracteristicas__item">
+          <mat-icon class="caracteristicas__img" matBadgeColor="warn" matTooltip={{ic.tipoCaracteristica.descripcion}}>{{ic.tipoCaracteristica.icono}}</mat-icon>
+          <mat-label>{{ic.cantidad}}</mat-label>
+        </div>
+      </div>
     </div>
   </mat-card-content>
   <mat-card-actions>

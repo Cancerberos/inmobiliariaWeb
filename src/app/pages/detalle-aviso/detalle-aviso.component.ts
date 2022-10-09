@@ -41,22 +41,15 @@ export class DetalleAvisoComponent implements OnInit {
         }
       });
     });
-
-    //console.log("getAllAvisosdel orto", this.avisos);
-    //return this.avisos;
   }
 
-  /*getImagenesAvisos(image: string): any {
-    console.log(image);
-    let blobImage: Blob = new Blob([image]);
-    console.log("BLOP", blobImage);
-    let objectURL = URL.createObjectURL(blobImage);
+  getImagenesAvisos(image: any, type: string): any {
+    let objectURL = 'data:' + type +';base64,' + image;
 
     let url: any = this.sanitizer.bypassSecurityTrustUrl(objectURL);
-    console.log("URL", url);
 
     return url;
-  }*/
+  }
 
   consultaAviso(){
     const dialogRef = this.dialog.open(ConsultaAvisoComponent, {

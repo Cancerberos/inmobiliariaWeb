@@ -24,6 +24,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -73,7 +74,8 @@ import { ConsultaAvisoComponent } from './pages/consulta-aviso/consulta-aviso.co
     MatProgressSpinnerModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
