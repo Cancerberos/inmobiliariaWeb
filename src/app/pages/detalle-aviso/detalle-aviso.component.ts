@@ -16,6 +16,10 @@ import { ConsultaAvisoComponent } from '../consulta-aviso/consulta-aviso.compone
 export class DetalleAvisoComponent implements OnInit {
   public aviso: Avisos;
   private idAviso: number;
+  public panelOpenState = false;
+  public latitudInmueble: number;
+  public longitudInmueble: number;
+  public map: any;
 
   constructor(private activeRoute: ActivatedRoute,
               private avisosService: AvisosService,
@@ -38,6 +42,8 @@ export class DetalleAvisoComponent implements OnInit {
       data.forEach(element => {
         if (element.id == id) {
           this.aviso = element;
+          this.latitudInmueble = parseInt(element.inmueble.latitud);
+          this.longitudInmueble = parseInt(element.inmueble.longitud);
         }
       });
     });

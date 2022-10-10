@@ -43,8 +43,8 @@
           "edificacion": "Casa",
           "piso": "1",
           "departamento": "1",
-          "latitud": "-30.2222",
-          "longitud": "-70.00",
+          "latitud": "-38.9436887",
+          "longitud": "-68.0847829",
           "imagen": [
               {
                   "id": 1,
@@ -165,12 +165,12 @@
               "codigoPostal": "8400"
           },
           "calle": "Irigoyen",
-          "numero": "1020",
+          "numero": "450",
           "edificacion": "Edificio",
           "piso": "1",
           "departamento": "1",
-          "latitud": "-30.2222",
-          "longitud": "-70.00",
+          "latitud": "-38.9501876",
+          "longitud": "-68.0631783",
           "imagen": [
               {
                   "id": 1,
@@ -291,12 +291,12 @@
               "codigoPostal": "8400"
           },
           "calle": "Mendoza",
-          "numero": "1020",
+          "numero": "843",
           "edificacion": "Loteo",
           "piso": "1",
           "departamento": "1",
-          "latitud": "-30.2222",
-          "longitud": "-70.00",
+          "latitud": "-38.94592",
+          "longitud": "-68.0554817",
           "imagen": [
               {
                   "id": 1,
@@ -417,12 +417,12 @@
               "codigoPostal": "8400"
           },
           "calle": "Pinar",
-          "numero": "1020",
+          "numero": "45",
           "edificacion": "Casa",
           "piso": "1",
           "departamento": "1",
-          "latitud": "-30.2222",
-          "longitud": "-70.00",
+          "latitud": "-38.9437011",
+          "longitud": "-68.0604734",
           "imagen": [
               {
                   "id": 1,

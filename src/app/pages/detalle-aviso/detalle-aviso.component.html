@@ -14,11 +14,36 @@
     </ng-template>
   </ngb-carousel>
   <mat-card-content>
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+      <mat-panel-title>
+        <p>
+          {{aviso.inmueble.calle}} {{aviso.inmueble.numero}} {{aviso.inmueble.localidad.descripcion}} {{aviso.inmueble.localidad.provincia.descripcion}}
+        </p>
+      </mat-panel-title>
+      </mat-expansion-panel-header>
+        <div style="margin:20px auto; width:100%; height: 100%;">
+          <ol-map
+          [lat]= aviso.inmueble.latitud
+          [lon]= aviso.inmueble.longitud
+          [zoom]=17
+          width="100%"
+          height="500px"
+          >
+            <ol-map-marker
+              [lat]= aviso.inmueble.latitud
+              [lon]= aviso.inmueble.longitud
+            >
+            </ol-map-marker>
+          </ol-map>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <br>
     <p>
-      {{aviso.inmueble.calle}} {{aviso.inmueble.numero}} {{aviso.inmueble.localidad.descripcion}} {{aviso.inmueble.localidad.provincia.descripcion}}
-    </p>
-    <p>
-      <span>Publicado {{aviso.fechaInicio}}</span>
+      <span>Publicado el {{aviso.fechaInicio | date}}</span>
     </p>
     <div class="switches">
       <div class="caracteristicas" *ngFor="let ic of aviso.inmueble.inmuebleTipoCaracteristica">
@@ -31,10 +56,17 @@
   </mat-card-content>
   <mat-card-actions>
       <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" (click)="consultaAviso()">
-        <mat-icon>chat</mat-icon>
+        <mat-icon>
+          <span class="material-symbols-outlined">
+            chat
+          </span>
+        </mat-icon>
       </button>
       <button mat-icon-button color="primary" aria-label="Example icon button with a home icon" (click)="volver()" [routerLink]="['./']">
-        <mat-icon>home</mat-icon>
+        <mat-icon>
+          <span class="material-symbols-outlined">
+            undo
+          </span></mat-icon>
       </button>
   </mat-card-actions>
 </mat-card>

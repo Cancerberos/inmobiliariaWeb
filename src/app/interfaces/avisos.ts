@@ -31,8 +31,8 @@ export interface Inmueble {
   edificacion:                string;
   piso:                       string;
   departamento:               string;
-  latitud:                    string;
-  longitud:                   string;
+  latitud:                    number;
+  longitud:                   number;
   imagen:                     Imagen[];
   inmuebleTipoCaracteristica: InmuebleTipoCaracteristica[];
 }
