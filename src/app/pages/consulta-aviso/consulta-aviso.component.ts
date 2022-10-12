@@ -46,7 +46,7 @@ export class ConsultaAvisoComponent implements OnInit {
 
     this.myForm.setValue({
       "mail": datosUsuario.mail,
-      "nombre": datosUsuario.apellido + "," + datosUsuario.nombre,
+      "nombre": datosUsuario.apellido + ", " + datosUsuario.nombre,
       "mensaje": ""
     });
   }

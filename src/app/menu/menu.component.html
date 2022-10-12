@@ -1,8 +1,8 @@
 <mat-toolbar color="primary">
-  <span><img [routerLink]="['./']" mat-card-image class="img-logo" src="assets/images/delsur.png" alt="Logo del BPN"></span>
+  <span><img [routerLink]="['./']" mat-card-image class="img-logo" src="assets/images/delsur.png" alt="Logo Del Sur Inmobiliaria"></span>
   <span class="spam-titulo">Del Sur Inmobiliaria</span>
   <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" matTooltip="{{txtUsuario}} ({{descPerfil}})" [matMenuTriggerFor]="usuario" *ngIf="isLogin" aria-label="Usuario">
+  <button mat-icon-button class="example-icon favorite-icon" matTooltip="{{txtUsuario}}" [matMenuTriggerFor]="usuario" *ngIf="isLogin" aria-label="Usuario">
     <mat-icon>account_circle</mat-icon>
   </button>
   <mat-menu #usuario="matMenu">
