@@ -30,14 +30,18 @@ export class DetalleAvisoComponent implements OnInit {
     const id = this.activeRoute.snapshot.paramMap.get("id");
 
     if (id) {
-      this.idAviso = parseInt(id);
-      this.getAvisoById(parseInt(id));
+      console.log("Id Aviso " + id);
+      this.getAvisoById(id);
     }
   }
 
-  getAvisoById(id: number) {
-    //this.avisosService.getById(id);
-    this.http.get(environment.urlAvisos).subscribe((data: any) => {
+  async getAvisoById(id: string) {
+    await this.avisosService.getById(id).then((response: any) => this.aviso = response);
+
+    console.log("AVISO x ID" + this.aviso.descripcion);
+    return this.aviso;
+
+    /*this.http.get(environment.urlAvisos).subscribe((data: any) => {
       this.aviso = data;
       data.forEach(element => {
         if (element.id == id) {
@@ -46,7 +50,7 @@ export class DetalleAvisoComponent implements OnInit {
           this.longitudInmueble = parseInt(element.inmueble.longitud);
         }
       });
-    });
+    });*/
   }
 
   getImagenesAvisos(image: any, type: string): any {
@@ -60,7 +64,7 @@ export class DetalleAvisoComponent implements OnInit {
   consultaAviso(){
     const dialogRef = this.dialog.open(ConsultaAvisoComponent, {
       width: '500px',
-      data: {descripcionAviso: this.aviso.descripcion}
+      data: {idAviso: this.aviso.aviso_Id, descripcionAviso: this.aviso.descripcion}
     });
 
     /*dialogRef.afterClosed().subscribe(result => {

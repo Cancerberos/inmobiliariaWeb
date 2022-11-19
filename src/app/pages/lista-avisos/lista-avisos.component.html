@@ -6,7 +6,7 @@
     <div *ngFor="let a of avisos">
       <app-aviso [esDetalle]="false" [aviso]="a"></app-aviso>
       <br>
-      <button mat-raised-button color="primary" routerLink="/detalle-aviso/{{a.id}}"><mat-icon><span class="material-symbols-outlined">
+      <button mat-raised-button color="primary" routerLink="/detalle-aviso/{{a.aviso_Id}}"><mat-icon><span class="material-symbols-outlined">
         search
         </span></mat-icon>Ver</button>
       <br>

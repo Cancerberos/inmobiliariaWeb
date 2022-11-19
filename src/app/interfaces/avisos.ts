@@ -1,43 +1,68 @@
 export interface Avisos {
-  id:            number;
+  aviso_Id:     number;
   descripcion:   string;
-  inmueble:      Inmueble;
-  valor:         string;
+  inmueble:      Inmuebles;
+  valor:         number;
   tipoOperacion: TipoOperacion;
-  fechaInicio:   string;
+  fechaInicio:   Date;
   fechaFin:      Date;
   estadoAviso:   EstadoAviso;
 }
 
 export interface EstadoAviso {
+  rel:    string;
+  href:   string;
+  method: string;
+  type:   string;
+  title:  string;
   id:          number;
   descripcion: string;
 }
 
 export interface TipoOperacion {
+  rel:    string;
+  href:   string;
+  method: string;
+  type:   string;
+  title:  string;
   id:          number;
   descripcion: string;
 }
 
-export interface Inmueble {
-  id:                         number;
-  cliente:                    Cliente;
-  descripcion:                string;
-  fechaExclusividad:          Date;
-  tipoUnidad:                 string;
-  localidad:                  Localidad;
-  calle:                      string;
-  numero:                     string;
-  edificacion:                string;
-  piso:                       string;
-  departamento:               string;
-  latitud:                    number;
-  longitud:                   number;
-  imagen:                     Imagen[];
-  inmuebleTipoCaracteristica: InmuebleTipoCaracteristica[];
+export interface Inmuebles {
+  rel:    string;
+  href:   string;
+  method: string;
+  type:   string;
+  title:  string;
+  logicalTypeName:             string;
+  objectIdentifier:            string;
+  datanucleusVersionTimestamp: number;
+  descripcion:                 string;
+  fechaExclusividad:           Date;
+  calle:                       string;
+  altura:                      string;
+  edificacion:                 string;
+  piso:                        string;
+  departamento:                string;
+  latitud:                     number;
+  longitud:                    number;
+  cli:                         string;
+  u:                           string;
+  cliente:                     Cliente;
+  localidad:                   Localidad;
+  prov:                        string;
+  tipoUnidad:                  string;
+  imagen:                      Imagen[];
+  inmueble:                    InmuebleTipoCaracteristica[];
 }
 
 export interface Cliente {
+  rel:    string;
+  href:   string;
+  method: string;
+  type:   string;
+  title:  string;
   id:           number;
   localidad:    Localidad;
   numero:       string;
@@ -53,6 +78,11 @@ export interface Cliente {
 }
 
 export interface Localidad {
+  rel:    string;
+  href:   string;
+  method: string;
+  type:   string;
+  title:  string;
   id:           number;
   provincia:    Provincia;
   descripcion:  string;
@@ -65,24 +95,44 @@ export interface Provincia {
 }
 
 export interface Imagen {
+  descripcion:                 string;
+  url:                         string;
+  logicalTypeName:             string;
+  objectIdentifier:            string;
+  datanucleusVersionTimestamp: number;
+  imagenDetalle:               ImagenDetalle;
+}
+
+export interface ImagenDetalle {
   id:          number;
-  src:         string;
   descripcion: string;
   inmuebleId:  string;
   name:        string;
-  mimetype:    string;
+  mimeType:    string;
   bytes:       string;
 }
 
 export interface InmuebleTipoCaracteristica {
   id:                 number;
   tipoCaracteristica: TipoCaracteristica;
-  cantidad:           number;
+  cant:           number;
 }
 
 export interface TipoCaracteristica {
+  rel:    string;
+  href:   string;
+  method: string;
+  type:   string;
+  title:  string;
   id:          number;
   descripcion: string;
   icono:       string;
 }
 
+export interface ApiGet {
+  rel:    string;
+  href:   string;
+  method: string;
+  type:   string;
+  title:  string;
+}

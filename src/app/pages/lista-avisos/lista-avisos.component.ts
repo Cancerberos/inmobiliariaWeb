@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AvisosService } from 'src/app/services/avisos.service';
 import { Avisos } from 'src/app/interfaces/avisos';
+import { Inmuebles } from '../../interfaces/avisos';
 
 @Component({
   selector: 'app-lista-avisos',
@@ -18,7 +19,8 @@ export class ListaAvisosComponent implements OnInit {
   }
 
   getAllAvisos() {
-    this.avisosService.getAll().subscribe((response: any) => this.avisos = response);
+    this.avisosService.getAll().then((response: any) => this.avisos = response);
+
     return this.avisos;
   }
 

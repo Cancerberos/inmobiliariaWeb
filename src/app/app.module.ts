@@ -25,6 +25,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OlMapsModule } from './ol-maps/ol-maps.module';
 
@@ -78,6 +79,7 @@ import { ConsultaAvisoComponent } from './pages/consulta-aviso/consulta-aviso.co
     MatDatepickerModule,
     MatProgressBarModule,
     MatExpansionModule,
+    MatGridListModule,
     NgbModule,
     OlMapsModule
   ],

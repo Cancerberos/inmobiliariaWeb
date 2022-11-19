@@ -1,0 +1,7 @@
+
+class AvisosClass {
+
+  constructor(parameters) {
+
+  }
+}

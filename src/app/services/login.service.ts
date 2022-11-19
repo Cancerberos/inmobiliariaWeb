@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Respuesta } from '../interfaces/respuesta';
 
@@ -38,20 +38,28 @@ export class LoginService {
     }
   }
 
-  async login(txtUsuario: string, txtPassword: string){
+  async login(txtUsuario: any, txtPassword: any){
     let responseLogin: any;
 
     try {
-      const response: any = await this.http.get(environment.urlUsuarios).toPromise();
+      const auth: any = "Basic " +  environment.apiAuth;
+      const header = new HttpHeaders({"Authorization": auth, "Accept": environment.apiAccept});
+      const params = new HttpParams()
+        .set("username", txtUsuario)
+        .set("password", txtPassword);
+
+      const response: any = await this.http.get(environment.apiHost + environment.apiUserValidation, {headers: header, params: params, observe: "response"}).toPromise();
+
+      console.log(response.body);
 
       if (response == null || response == undefined){
         responseLogin = {cod_resultado: "ERR", desc_respuesta: "Usuario no encontrado"};
       } else {
-        if (response.password != txtPassword || response.username != txtUsuario) {
+        if (response.body.password != txtPassword || response.body.username != txtUsuario) {
           responseLogin = {cod_resultado: "ERR", desc_respuesta: "Usuario o Password incorrecto"};
         }
         else {
-          localStorage.setItem("usuario", JSON.stringify(response));
+          localStorage.setItem("usuario", JSON.stringify(response.body));
           responseLogin = {cod_resultado: "OK", desc_respuesta: ""};
         }
       }
@@ -59,8 +67,17 @@ export class LoginService {
       return responseLogin;
     }
     catch(e){
-      const response: Respuesta = e.error;
-      responseLogin = {cod_resultado: "ERR", desc_respuesta: "Error al validar el usuario: " + response.descError};
+      console.log("ERROR RESPONSE", e);
+
+      if (e.status == 404) {
+        responseLogin = {cod_resultado: "ERR", desc_respuesta: "Usuario o Password incorrecto"};
+      }
+      else {
+        if (e.status == 500) {
+          responseLogin = {cod_resultado: "ERR", desc_respuesta: "Error al validar el usuario: " + e.message};
+        }
+      }
+
       return responseLogin;
     }
   }

@@ -20,7 +20,7 @@ export class DatosUsuarioComponent implements OnInit {
     this.loginName = usuario;
     this.apellido = datosUsuario.apellido;
     this.nombre = datosUsuario.nombre;
-    this.mail = datosUsuario.mail;
+    this.mail = datosUsuario.email;
   }
 
 }

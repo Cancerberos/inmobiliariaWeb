@@ -11,7 +11,8 @@ export class AvisoComponent implements OnInit {
   @Input() public esDetalle: boolean = false;
   @Input() public aviso!: Avisos;
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(private sanitizer: DomSanitizer) {
+  }
 
   getImagenesAvisos(image: any, type: string): any {
     let objectURL = 'data:' + type +';base64,' + image;
@@ -22,6 +23,8 @@ export class AvisoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+
   }
 
 }

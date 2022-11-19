@@ -1,12 +1,12 @@
 <mat-card class="example-card">
   <mat-card-header>
-    <mat-card-title>{{aviso.tipoOperacion.descripcion}} - {{aviso.descripcion}}</mat-card-title>
+    <mat-card-title>{{aviso.tipoOperacion.title}} - {{aviso.descripcion}}</mat-card-title>
     <mat-card-subtitle>{{aviso.valor}}</mat-card-subtitle>
   </mat-card-header>
   <ngb-carousel>
     <ng-template ngbSlide *ngFor="let image of aviso.inmueble.imagen">
       <div class="wrapper">
-        <img mat-card-image [src]="getImagenesAvisos(image.bytes, image.mimetype)" [alt]="image.descripcion">
+        <img mat-card-image [src]="getImagenesAvisos(image.imagenDetalle.bytes, image.imagenDetalle.mimeType)" [alt]="image.descripcion">
       </div>
       <div class="carousel-caption">
         <h3>{{ image.descripcion }}</h3>
@@ -15,13 +15,13 @@
   </ngb-carousel>
   <mat-card-content>
     <p>
-      {{aviso.inmueble.calle}} {{aviso.inmueble.numero}} {{aviso.inmueble.localidad.descripcion}} {{aviso.inmueble.localidad.provincia.descripcion}}
+      {{aviso.inmueble.calle}} {{aviso.inmueble.altura}} {{aviso.inmueble.localidad.title}} {{aviso.inmueble.prov}}
     </p>
     <div class="switches">
-      <div class="caracteristicas" *ngFor="let ic of aviso.inmueble.inmuebleTipoCaracteristica">
+      <div class="caracteristicas" *ngFor="let ic of aviso.inmueble.inmueble">
         <div class="caracteristicas__item">
-          <mat-icon class="caracteristicas__img" matBadgeColor="warn" matTooltip={{ic.tipoCaracteristica.descripcion}}>{{ic.tipoCaracteristica.icono}}</mat-icon>
-          <mat-label>{{ic.cantidad}}</mat-label>
+          <mat-icon class="caracteristicas__img" matBadgeColor="warn" matTooltip={{ic.tipoCaracteristica.title}}>{{ic.tipoCaracteristica.icono}}</mat-icon>
+          <mat-label>{{ic.cant}}</mat-label>
         </div>
       </div>
     </div>
