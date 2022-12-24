@@ -17,14 +17,7 @@ export class ConsultaAvisoService {
 
     const body = JSON.stringify(consultaAviso);
     console.log("Body", body);
-    /*const body = {
-        "nombre": consultaAviso.nombre,
-        "apellido": consultaAviso.apellido,
-        "email": consultaAviso.email,
-        "aviso": consultaAviso.aviso,
-        "mensaje": consultaAviso.mensaje,
-        "estadoContacto": consultaAviso.estadoContacto
-    }*/
+
     return await this.httpClient.put(environment.apiHost + environment.apiAvisoContacto, body, {headers: header}).toPromise();
   }
 }

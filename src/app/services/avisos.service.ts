@@ -1,17 +1,16 @@
-import { DatePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Avisos } from '../interfaces/avisos';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { environment } from 'src/environments/environment';
-import { elementAt } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AvisosService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+
+  }
 
  async getAll() {
   let responseAvisos: any;
@@ -28,7 +27,8 @@ export class AvisosService {
           responseAvisos = response.body;
 
           responseAvisos.forEach(async aviso => {
-            console.log("aviso", aviso.inmueble);
+            console.log("inmueble", aviso.inmueble);
+
             //Obtengo los Inmuebles del Aviso
             await this.getApiByUrl(aviso.inmueble.href).then((response) => {
               aviso.inmueble = response;

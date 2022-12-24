@@ -7,6 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { AvisosService } from 'src/app/services/avisos.service';
 import { Avisos } from '../../interfaces/avisos';
 import { ConsultaAvisoComponent } from '../consulta-aviso/consulta-aviso.component';
+import { TipoCaracteristicas } from 'src/app/interfaces/tipo-caracteristicas';
 
 @Component({
   selector: 'app-detalle-aviso',
@@ -20,6 +21,49 @@ export class DetalleAvisoComponent implements OnInit {
   public latitudInmueble: number;
   public longitudInmueble: number;
   public map: any;
+
+  private tipoCaracteristicas: TipoCaracteristicas[] = [
+    {
+      descCaracteristica: "BAÑO",
+      icono: "bathtub"
+    },
+    {
+      descCaracteristica: "HABITACION",
+      icono: "bed"
+    },
+    {
+      descCaracteristica: "QUINCHO",
+      icono: "outdoor_grill"
+    },
+    {
+      descCaracteristica: "PISCINA",
+      icono: "pool"
+    },
+    {
+      descCaracteristica: "COCHERA",
+      icono: "garage"
+    },
+    {
+      descCaracteristica: "WIFI",
+      icono: "wifi"
+    },
+    {
+      descCaracteristica: "TV CABLE",
+      icono: "tv"
+    },
+    {
+      descCaracteristica: "CALEFACCION",
+      icono: "ac_unit"
+    },
+    {
+      descCaracteristica: "BALCON",
+      icono: "balcony"
+    },
+    {
+      descCaracteristica: "METROS 2",
+      icono: "straighten"
+    }
+  ];
 
   constructor(private activeRoute: ActivatedRoute,
               private avisosService: AvisosService,
@@ -70,6 +114,12 @@ export class DetalleAvisoComponent implements OnInit {
     /*dialogRef.afterClosed().subscribe(result => {
       this.getCanales();
     });*/
+  }
+
+  getIconoTipoCaracterisitica(desc: string) {
+    const icono = this.tipoCaracteristicas.find((element) => element.descCaracteristica === desc).icono;
+
+    return icono;
   }
 
   volver() {

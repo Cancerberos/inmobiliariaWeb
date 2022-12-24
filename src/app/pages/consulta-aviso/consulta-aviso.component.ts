@@ -70,10 +70,10 @@ export class ConsultaAvisoComponent implements OnInit {
   }
 
   enviar() {
-    this.consultaAviso.apellido.value = this.myForm.get("apellido")?.value;
-    this.consultaAviso.nombre.value = this.myForm.get("nombre")?.value;
+    this.consultaAviso.apellido.value = this.myForm.get("apellido")?.value.toUpperCase();
+    this.consultaAviso.nombre.value = this.myForm.get("nombre")?.value.toUpperCase();
     this.consultaAviso.email.value = this.myForm.get("mail")?.value;
-    this.consultaAviso.mensaje.value = this.myForm.get("mensaje")?.value;
+    this.consultaAviso.mensaje.value = this.myForm.get("mensaje")?.value.toUpperCase();
     this.consultaAviso.aviso.value.href = "http://localhost:8080/restful/objects/simple.aviso/" + this.data.idAviso;
     this.consultaAviso.aviso.value.method = "GET";
     this.consultaAviso.aviso.value.rel = "urn:org.restfulobjects:rels/value";
@@ -84,6 +84,7 @@ export class ConsultaAvisoComponent implements OnInit {
     this.consultaAviso.estadoContacto.value.rel = "urn:org.restfulobjects:rels/value";
     this.consultaAviso.estadoContacto.value.type = "application/json;profile=\"urn:org.restfulobjects:repr-types/object\"";
     this.consultaAviso.estadoContacto.value.title = "PENDIENTE";
+    //this.consultaAviso.mensaje.value = this.consultaAviso.mensaje.value.toUpperCase();
 
     const respuesta = this.consultaAvisoService.addAvisoContacto(this.consultaAviso);
     console.log("Alta", respuesta);
@@ -97,13 +98,6 @@ export class ConsultaAvisoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    /*let datosUsuario: any = JSON.parse(localStorage.getItem("usuario")!);
-
-    this.myForm.setValue({
-      "mail": datosUsuario.mail,
-      "nombre": datosUsuario.apellido + ", " + datosUsuario.nombre,
-      "mensaje": ""
-    });*/
   }
 
 }

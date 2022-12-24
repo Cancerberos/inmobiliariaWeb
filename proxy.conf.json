@@ -1,6 +1,6 @@
 {
   "/restful": {
-    "target": "http://localhost:8080",
+    "target": "http://webinmobiliaria.us-east-1.elasticbeanstalk.com",
     "secure": false,
     "changeOrigin": true
   }
