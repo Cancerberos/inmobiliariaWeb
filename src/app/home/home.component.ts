@@ -11,7 +11,10 @@ export class HomeComponent implements OnInit {
   isLogin: boolean = false;
 
   constructor(private login: LoginService, private route: Router) {
-    this.login.isAuthenticate().subscribe(
+    this.isLogin = true;
+    this.route.navigate(['/']);
+
+    /*this.login.isAuthenticate().subscribe(
       login=>{
         let hayUsuario: any = JSON.parse(localStorage.getItem("usuario")!)
 
@@ -21,7 +24,7 @@ export class HomeComponent implements OnInit {
           this.isLogin = login;
         }
         this.route.navigate(['/']);
-      })
+      })*/
   }
 
   ngOnInit(): void {

@@ -4,10 +4,11 @@
 
 export const environment = {
   production: false,
-  //apiHost: "http://localhost:8080/",
-  apiHost: "/restful",
+  apiHost: "http://webinmobiliaria.us-east-1.elasticbeanstalk.com/restful",
+  //apiHost: "/restful",
+  //apiHost: "http://localhost:8080",
   apiAccept: "application/json;profile=urn:org.apache.isis/v2;suppress=all",
-  apiAuth: "c3ZlbjpwYXNz",
+  apiAuth: "c3ZlbjpwYXNz", //"YXBpX3NlcnZpY2U6MTExMTE=", //"c3ZlbjpwYXNz",
   apiUserValidation: "/services/simple.UsuarioRepositorio/actions/userValidation/invoke",
   apiAvisos: "/services/simple.AvisoRepositorio/actions/listarAvisos/invoke",
   apiAvisosById: "/objects/simple.aviso/",

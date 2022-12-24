@@ -6,7 +6,7 @@
   <ngb-carousel>
     <ng-template ngbSlide *ngFor="let image of aviso.inmueble.imagen">
       <div class="wrapper">
-        <img mat-card-image [src]="getImagenesAvisos(image.imagenDetalle.bytes, image.imagenDetalle.mimeType)" [alt]="image.descripcion">
+        <img class="inmueble__img" mat-card-image [src]="getImagenesAvisos(image.imagenDetalle.bytes, image.imagenDetalle.mimeType)" [alt]="image.descripcion">
       </div>
       <div class="carousel-caption">
         <h3>{{ image.descripcion }}</h3>
@@ -48,7 +48,7 @@
     <div class="switches">
       <div class="caracteristicas" *ngFor="let ic of aviso.inmueble.inmueble">
         <div class="caracteristicas__item">
-          <mat-icon class="caracteristicas__img" matBadgeColor="warn" matTooltip={{ic.tipoCaracteristica.title}}>{{ic.tipoCaracteristica.icono}}</mat-icon>
+          <mat-icon class="caracteristicas__img" matBadgeColor="warn" matTooltip={{ic.tipoCaracteristica.title}}>{{getIconoTipoCaracterisitica(ic.tipoCaracteristica.title)}}</mat-icon>
           <mat-label>{{ic.cant}}</mat-label>
         </div>
       </div>

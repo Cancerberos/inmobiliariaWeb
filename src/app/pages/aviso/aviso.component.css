@@ -19,3 +19,8 @@
   cursor: pointer;
   display: block;
 }
+
+.inmueble__img {
+  width: 500px;
+  height: 500px;
+}

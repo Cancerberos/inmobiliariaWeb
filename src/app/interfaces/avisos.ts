@@ -38,6 +38,7 @@ export interface Inmuebles {
   logicalTypeName:             string;
   objectIdentifier:            string;
   datanucleusVersionTimestamp: number;
+  inmuebleid:                  number;
   descripcion:                 string;
   fechaExclusividad:           Date;
   calle:                       string;
